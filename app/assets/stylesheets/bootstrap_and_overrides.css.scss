@@ -1,0 +1,20 @@
+@import "bootstrap";
+//@import "bootstrap-responsive";
+
+.btn{
+  &.btn-info{
+    background-color: #49afcd;
+    background-image: none;
+    border: none;
+  }
+
+  &.btn-success{
+    background-color: #5bb65b;
+    background-image: none;
+    border: none;
+  }
+
+  &.btn-large{
+    padding: 15px 0;
+  }
+}

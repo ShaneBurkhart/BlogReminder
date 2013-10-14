@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:300);
+
+$textColor: #3e474c;
+
+body{
+  font-family: 'Oxygen', sans-serif;
+  color: $textColor;
+}
+
+h1{
+  font-weight: normal;
+}
+h2{
+  font-weight: normal;
+}
+
+.content-editable{
+  p{
+    font-size: 1.3em;
+    line-height: 1.9;
+    padding-top: 18px;
+  }
+}
+
+.icon-xxxl{
+  font-size: 200px;
+}

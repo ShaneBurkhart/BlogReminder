@@ -1,3 +1,87 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.editable{
+  outline: 0px solid transparent;
+}
+
+.banner-container{
+  height:650px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  margin-bottom: 50px;
+
+  .banner-loading-image{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: auto;
+    top: 0;
+    background-color: #222;
+    z-index: -9999;
+  }
+
+  .banner-background-image{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: -999;
+  }
+
+  .banner-content{
+    width: 100%;
+    height: auto;
+    top: 0;
+  }
+
+  .banner-brand{
+    font-size: 6em;
+    margin-top: 90px;
+    font-weight: bold;
+  }
+
+  .banner{
+    padding: 130px 0 70px;
+  }
+}
+
+.marketing-section{
+  padding-bottom: 80px;
+/*
+  h2{
+    &.green{
+      color: #5bb65b;
+    }
+
+    &.blue{
+      color: #49afcd;
+    }
+  }
+*/
+  &.small{
+    padding-bottom:50px;
+  }
+/*
+  i{
+    color: #49afcd;
+  }
+  */
+}
+
+.payment-errors{
+  color: red;
+}
+
+.notification{
+  font-size: 1.3em;
+  width: 300px;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  text-align: center;
+  margin-left: -150px;
+  display: none;
+  z-index: 100;
+}
