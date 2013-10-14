@@ -1,4 +1,27 @@
-%h3 Home
-- @users.each do |user|
-  %p
-    User: #{link_to user.name, user}
+.banner-container.editable
+  = image_tag "", class: "banner-loading-image"
+  = image_tag "bridge.png", class: "banner-background-image"
+  .banner-content
+    .container
+      %h1.banner-brand.text-center
+        Blog Reminder
+      .banner.text-center
+        %h1 Plan For Better Content
+        %p.lead Set a blog schedule to remind you to blog and improve your content.
+
+      .marketing-section.row
+        .offset4.span4
+          = link_to "Sign Up Now!", "#", class: "btn btn-large btn-block btn-success"
+
+.container
+  .marketing-section.small
+    %h2.blue Dead Simple Content Scheduling
+    %p.lead With just a few clicks, you can organize and schedule future content for your blog.  Multiple blogs?  No problem!  We handle that too.
+
+  .marketing-section.small
+    %h2.blue Planning Makes For Better Content
+    %p.lead Planning out the content for your blog makes it easy to organize thoughts and ideas.  Your readers will thank you when your content keeps getting better and better.
+
+  .marketing-section.small
+    %h2.blue Email Notifications
+    %p.lead We will send you an email reminding you to write the content you have scheduled.  A consistent blogging schedule will keep your readers engaged and happy.
