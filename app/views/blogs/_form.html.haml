@@ -1,0 +1,9 @@
+%h1 Add a blog
+
+= simple_form_for(@blog, html: {:class => 'form-vertical' }) do |f|
+  = f.error_notification
+  = display_base_errors @blog
+  = f.input :name, autofocus: true
+  %br
+  = f.button :submit, 'Add Blog', class: 'btn-primary'
+

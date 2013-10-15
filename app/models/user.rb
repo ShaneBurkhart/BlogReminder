@@ -7,5 +7,32 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-  
+
+  has_many :blogs
+
+  def my_blog?(blog)
+    self.blogs.each do |b|
+      return true if b.id == blog.id
+    end
+    false
+  end
+
+  def my_planned_date?(date)
+    dates = self.blogs.map do |blog|
+      blog.planned_dates
+    end
+    dates.flatten!
+    dates.each do |d|
+      return true if d.id == date.id
+    end
+    false
+  end
+
+  def planned_dates
+    dates = self.blogs.map do |blog|
+      blog.planned_dates
+    end
+    dates.flatten!
+  end
+
 end
