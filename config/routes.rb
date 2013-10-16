@@ -13,7 +13,7 @@ BlogPlanner::Application.routes.draw do
   end
 
   #get "/app" => "app#show"
-  namespace :api do
+  # namespace :api do
     #resources :blogs
-  end
+  # end
 end
