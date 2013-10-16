@@ -1,19 +1,22 @@
 .container
 
-  %h1 Listing blogs
-
-  %table
-    %tr
-      %th
-      %th
-      %th
-
-    - @blogs.each do |blog|
-      %tr
-        %td= link_to 'Show', blog
-        %td= link_to 'Edit', edit_blog_path(blog)
-        %td= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-  %br
+  %h1 Your Blogs
 
   = link_to 'New Blog', new_blog_path
+
+  %br
+  %br
+
+  %table.table
+    %tr
+      %th Name
+      %th Controls
+    - @blogs.each do |blog|
+      %td= blog.name
+      %td
+        %ul.nav.nav-pills
+          %li= link_to 'Show', blog
+          %li= link_to 'Edit', edit_blog_path(blog)
+          %li= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+

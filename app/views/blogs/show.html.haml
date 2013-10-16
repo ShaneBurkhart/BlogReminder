@@ -1,6 +1,12 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_blog_path(@blog)
-\|
+%h1= @blog.name
 = link_to 'Back', blogs_path
+= link_to 'Add a Plan', new_date_path
+
+%table.table
+  %thead
+    %tr
+      %th Topic
+      %th Date
+  %tbody
+    - @blog.planned_dates.each do |date|
+      date.content

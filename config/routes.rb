@@ -8,8 +8,8 @@ BlogPlanner::Application.routes.draw do
   devise_for :users
   resource :user, only: ["show"]
 
-  resources :blogs do
-    resources :dates
+  resources :blogs, except: [] do
+    resources :dates, except: ["index", "show"]
   end
 
   #get "/app" => "app#show"
