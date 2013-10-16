@@ -1,12 +1,14 @@
-%h1= @blog.name
-= link_to 'Back', blogs_path
-= link_to 'Add a Plan', new_date_path
+.container
+  %h1= @blog.name
+  %ul.nav.nav-pills
+    %li= link_to 'Back', blogs_path
+    %li= link_to 'Add a Plan', new_blog_planned_date_path(@blog)
 
-%table.table
-  %thead
-    %tr
-      %th Topic
-      %th Date
-  %tbody
-    - @blog.planned_dates.each do |date|
-      date.content
+  %table.table
+    %thead
+      %tr
+        %th Topic
+        %th Date
+    %tbody
+      - @blog.planned_dates.each do |date|
+        = date.content

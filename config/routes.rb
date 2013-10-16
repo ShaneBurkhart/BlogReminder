@@ -9,7 +9,7 @@ BlogPlanner::Application.routes.draw do
   resource :user, only: ["show"]
 
   resources :blogs, except: [] do
-    resources :dates, except: ["index", "show"]
+    resources :planned_dates, except: ["index", "show"]
   end
 
   #get "/app" => "app#show"

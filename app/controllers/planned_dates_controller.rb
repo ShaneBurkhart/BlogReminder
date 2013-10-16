@@ -15,7 +15,7 @@ class PlannedDatesController < ApplicationController
   # GET /dates/1
   # GET /dates/1.json
   def show
-    @date = Date.find(params[:id])
+    @date = PlannedDate.find(params[:id])
 
     return unless authorize_planned_date
 
@@ -28,7 +28,7 @@ class PlannedDatesController < ApplicationController
   # GET /dates/new
   # GET /dates/new.json
   def new
-    @date = Date.new
+    @date = PlannedDate.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,18 +38,19 @@ class PlannedDatesController < ApplicationController
 
   # GET /dates/1/edit
   def edit
-    @date = Date.find(params[:id])
+    @date = PlannedDate.find(params[:id])
     return unless authorize_planned_date
   end
 
   # POST /dates
   # POST /dates.json
   def create
-    @date = Date.new(params[:date])
+    @blog = Blog.find(params[:blog_id])
+    @date = @blog.planned_dates.build(params[:date])
 
     respond_to do |format|
       if @date.save
-        format.html { redirect_to @date, notice: 'Date was successfully created.' }
+        format.html { redirect_to blog_path(params[:blog_id]), notice: 'PlannedDate was successfully created.' }
         format.json { render json: @date, status: :created, location: @date }
       else
         format.html { render action: "new" }
@@ -61,13 +62,13 @@ class PlannedDatesController < ApplicationController
   # PUT /dates/1
   # PUT /dates/1.json
   def update
-    @date = Date.find(params[:id])
+    @date = PlannedDate.find(params[:id])
 
     return unless authorize_planned_date
 
     respond_to do |format|
       if @date.update_attributes(params[:date])
-        format.html { redirect_to @date, notice: 'Date was successfully updated.' }
+        format.html { redirect_to @date, notice: 'PlannedDate was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -79,14 +80,14 @@ class PlannedDatesController < ApplicationController
   # DELETE /dates/1
   # DELETE /dates/1.json
   def destroy
-    @date = Date.find(params[:id])
+    @date = PlannedDate.find(params[:id])
 
     return unless authorize_planned_date
 
     @date.destroy
 
     respond_to do |format|
-      format.html { redirect_to dates_url }
+      format.html { redirect_to blog_planned_dates_path(params[:blog_id])}
       format.json { head :no_content }
     end
   end

@@ -12,11 +12,12 @@
       %th Name
       %th Controls
     - @blogs.each do |blog|
-      %td= blog.name
-      %td
-        %ul.nav.nav-pills
-          %li= link_to 'Show', blog
-          %li= link_to 'Edit', edit_blog_path(blog)
-          %li= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %tr
+        %td= blog.name
+        %td
+          %ul.nav.nav-pills
+            %li= link_to 'Show', blog
+            %li= link_to 'Edit', edit_blog_path(blog)
+            %li= link_to 'Destroy', blog, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
