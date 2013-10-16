@@ -47,6 +47,7 @@ class PlannedDatesController < ApplicationController
   def create
     @blog = Blog.find(params[:blog_id])
     @date = @blog.planned_dates.build(params[:date])
+    @date.attributes = params[:planned_date]
 
     respond_to do |format|
       if @date.save
@@ -68,7 +69,7 @@ class PlannedDatesController < ApplicationController
 
     respond_to do |format|
       if @date.update_attributes(params[:date])
-        format.html { redirect_to @date, notice: 'PlannedDate was successfully updated.' }
+        format.html { redirect_to @date, notice: 'Date was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,7 +88,7 @@ class PlannedDatesController < ApplicationController
     @date.destroy
 
     respond_to do |format|
-      format.html { redirect_to blog_planned_dates_path(params[:blog_id])}
+      format.html { redirect_to blog_path(params[:blog_id])}
       format.json { head :no_content }
     end
   end

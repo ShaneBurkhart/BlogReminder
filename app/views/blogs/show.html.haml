@@ -9,6 +9,15 @@
       %tr
         %th Topic
         %th Date
+        %th Controls
     %tbody
       - @blog.planned_dates.each do |date|
-        = date.content
+        %tr
+          %td= date.content
+          %td= date.planned_date
+          %td
+            %ul.nav.nav-pills
+              %li= link_to 'Edit', edit_blog_planned_date_path(date.blog.id, date)
+              %li= link_to 'Destroy', blog_planned_date_path(date.blog.id, date), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+

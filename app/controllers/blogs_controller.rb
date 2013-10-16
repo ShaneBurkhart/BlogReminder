@@ -17,7 +17,7 @@ class BlogsController < ApplicationController
   def show
     @blog = Blog.find(params[:id])
 
-    return unless authorize_blog
+    # return unless authorize_blog
 
     respond_to do |format|
       format.html # show.html.erb
