@@ -1,5 +1,9 @@
 BlogPlanner::Application.routes.draw do
 
+  get "about/index"
+
+  get "faq/index"
+
   authenticated :user do
     root :to => 'home#index'
   end
