@@ -1,9 +1,5 @@
 BlogPlanner::Application.routes.draw do
 
-  get "about/index"
-
-  get "faq/index"
-
   authenticated :user do
     root :to => 'home#index'
   end
@@ -16,8 +12,11 @@ BlogPlanner::Application.routes.draw do
     resources :planned_dates, except: ["index", "show"]
   end
 
+  #get "faq" => "faq#index"
+  get "about" => "about#index"
+
   #get "/app" => "app#show"
-  # namespace :api do
+    #namespace :api do
     #resources :blogs
-  # end
+  #end
 end
