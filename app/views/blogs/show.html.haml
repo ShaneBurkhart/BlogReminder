@@ -4,18 +4,14 @@
     %li= link_to 'Back', blogs_path
     %li= link_to 'Add a Plan', new_blog_planned_date_path(@blog)
 
-  %table.table
-    %thead
-      %tr
-        %th Topic
-        %th Date
-        %th Controls
-    %tbody
-      - @blog.planned_dates.each do |date|
-        %tr
-          %td= date.content
-          %td= date.planned_date
-          %td
+  - @blog.planned_dates.each_slice(2).each do |date_slice|
+    .row
+      - date_slice.each do |date|
+        .span6
+          .box
+            %h3= "Some Title"
+            %p= date.content
+            %p.muted= date.planned_date
             %ul.nav.nav-pills
               %li= link_to 'Edit', edit_blog_planned_date_path(date.blog.id, date)
               %li= link_to 'Destroy', blog_planned_date_path(date.blog.id, date), :method => :delete, :data => { :confirm => 'Are you sure?' }
