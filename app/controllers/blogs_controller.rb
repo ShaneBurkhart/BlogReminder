@@ -81,9 +81,10 @@ class BlogsController < ApplicationController
   # DELETE /blogs/1.json
   def destroy
     @blog = Blog.find(params[:id])
-    @blog.destroy
 
     return unless authorize_blog
+
+    @blog.destroy
 
     respond_to do |format|
       format.html { redirect_to blogs_url }
