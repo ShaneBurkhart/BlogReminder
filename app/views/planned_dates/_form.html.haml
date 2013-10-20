@@ -1,4 +1,4 @@
-= simple_form_for(@date, url: blog_planned_dates_path(params[:blog_id]), html: {:class => 'form-vertical' }) do |f|
+= simple_form_for(@date, url: ( @date.id ? blog_planned_date_path(params[:blog_id], @date.id) : blog_planned_dates_path(params[:blog_id])), html: {:class => 'form-vertical' }) do |f|
   = f.error_notification
   = display_base_errors @date
   = f.input :title, input_html: {class: "span9"}, autofocus: true

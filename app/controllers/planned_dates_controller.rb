@@ -68,8 +68,8 @@ class PlannedDatesController < ApplicationController
     return unless authorize_planned_date
 
     respond_to do |format|
-      if @date.update_attributes(params[:date])
-        format.html { redirect_to @date, notice: 'Date was successfully updated.' }
+      if @date.update_attributes(params[:planned_date])
+        format.html { redirect_to blog_path(@date.blog.id), notice: 'Date was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

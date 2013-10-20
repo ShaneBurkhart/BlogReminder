@@ -11,7 +11,7 @@
           .box
             %h3= date.title
             %p= date.content
-            %p.muted= date.planned_date
+            %p.muted= date.date
             %ul.nav.nav-pills
               %li= link_to 'Edit', edit_blog_planned_date_path(date.blog.id, date)
               %li= link_to 'Destroy', blog_planned_date_path(date.blog.id, date), :method => :delete, :data => { :confirm => 'Are you sure?' }
