@@ -1,6 +1,8 @@
 = simple_form_for(@date, url: blog_planned_dates_path(params[:blog_id]), html: {:class => 'form-vertical' }) do |f|
   = f.error_notification
   = display_base_errors @date
-  = f.input :content, autofocus: true
+  = f.input :title, input_html: {class: "span9"}, autofocus: true
+  = f.input :content, input_html: {rows: 10, cols: 100, class: "span9"}, autofocus: true
+  = f.input :date, autofocus: true
   %br
   = f.button :submit, 'Add Date', class: 'btn-primary'
