@@ -6,6 +6,7 @@
         %li= link_to "About Us", about_path
         <!--%li= link_to "FAQ", faq_path !-->
         - if current_user
+          %li= link_to "My Blogs", blogs_path
           %li= link_to "Edit Account", edit_user_registration_path
           %li= link_to "Logout", destroy_user_session_path, :method=>'delete'
         - else
